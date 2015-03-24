@@ -22,6 +22,11 @@ if ( ! function_exists( 'overscores_setup' ) ) :
  */
 function overscores_setup() {
 
+	/**
+	 * Underscores.me generator pseudo-plugin
+	 */
+	require( get_template_directory() . '/plugins/underscoresme-generator/underscoresme-generator.php' );
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.

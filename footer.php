@@ -11,12 +11,18 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'overscores' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'overscores' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'overscores' ), 'Overscores', '<a href="http://automattic.com" rel="designer">Automattic</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+        <div class="automattic-credit">
+            An <a href="http://automattic.com/" id="automattic-credit-logo">Automattic</a> 
+            <?php
+            $words = array( 'Production', 'Joint', 'Medley', 'Experiment', 'Ruckus', 'Invention', 'Creation', 'Thingamajig', 'Opus', 'Brainchild', 'Contraption' );
+            echo $words[ mt_rand( 0, count( $words) -1 ) ];
+            ?>
+        </div><!-- .automattic-credit -->
+        <div class="site-info">
+            <?php do_action( 'underscoresme_credits' ); ?>
+            <a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'underscoresme' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'underscoresme' ), 'WordPress' ); ?></a>
+        </div><!-- .site-info -->
+    </footer><!-- #colophon .site-footer -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
