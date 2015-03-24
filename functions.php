@@ -6,138 +6,61 @@
  */
 
 /**
- * Set the content width based on the theme's design and stylesheet.
+ * Enqueue scripts and styles.
  */
-if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+function overscores_style() {
+	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 }
-
-if ( ! function_exists( 'overscores_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-function overscores_setup() {
-
-	/**
-	 * Underscores.me generator pseudo-plugin
-	 */
-	require( get_template_directory() . '/plugins/underscoresme-generator/underscoresme-generator.php' );
-
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Overscores, use a find and replace
-	 * to change 'overscores' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'overscores', get_template_directory() . '/languages' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	//add_theme_support( 'post-thumbnails' );
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'overscores' ),
-	) );
-
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
-
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link',
-	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'overscores_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-}
-endif; // overscores_setup
-add_action( 'after_setup_theme', 'overscores_setup' );
-
-/**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
- */
-function overscores_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'overscores' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-}
-add_action( 'widgets_init', 'overscores_widgets_init' );
+add_action( 'wp_enqueue_scripts', 'overscores_style' );
 
 /**
  * Enqueue scripts and styles.
  */
 function overscores_scripts() {
-	wp_enqueue_style( 'overscores-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'overscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'overscores-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_dequeue_script( 'underscores-scripts' );
+	wp_enqueue_script( 'overscores-scripts', get_stylesheet_directory_uri() . '/js/overscores-scripts.js', array( 'jquery' ) );
 }
-add_action( 'wp_enqueue_scripts', 'overscores_scripts' );
+add_action( 'wp_enqueue_scripts', 'overscores_scripts', 20 );
 
 /**
- * Implement the Custom Header feature.
+ * Returns the Google font stylesheet URL, if available.
+ *
+ * The use of Quattrocento Sans and Playfair Display by default is
+ * localized. For languages that use characters not supported by either
+ * font, the font can be disabled.
+ *
+ * @return string Font stylesheet or empty string if disabled.
  */
-//require get_template_directory() . '/inc/custom-header.php';
+function overscores_fonts_url() {
+	$fonts_url = '';
+
+	$font_families = array(
+		urlencode( 'Karla:400,400italic,700,700italic' ),
+		urlencode( 'Montserrat:400,700' ),
+	);
+
+	$protocol = is_ssl() ? 'https' : 'http';
+	$fonts_url = add_query_arg( 'family', implode( '|', $font_families ), "$protocol://fonts.googleapis.com/css" );
+
+	return $fonts_url;
+}
 
 /**
- * Custom template tags for this theme.
+ * Loads our special font CSS file.
+ *
+ * To disable in a child theme, use wp_dequeue_style()
+ * function mytheme_dequeue_fonts() {
+ *     wp_dequeue_style( 'overscores-fonts' );
+ * }
+ * add_action( 'wp_enqueue_scripts', 'mytheme_dequeue_fonts', 11 );
+ *
+ * @return void
  */
-require get_template_directory() . '/inc/template-tags.php';
+function overscores_fonts() {
+	$fonts_url = overscores_fonts_url();
+	if ( ! empty( $fonts_url ) )
+		wp_enqueue_style( 'overscores-fonts', esc_url_raw( $fonts_url ), array(), null );
+}
+// add_action( 'wp_enqueue_scripts', 'overscores_fonts' );
 
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+require_once 'plugins/overscores-generator.php';

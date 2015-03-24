@@ -6,16 +6,11 @@
  * @since Overscores 1.0
  */
 
-get_header(); ?>	
+get_header(); ?>
 
 		<div id="primary" class="site-content">
-			
-			<section id="generator" role="main">
-				<div class="wrap">
-					<h1>Lets generate some content</h1>
-					<?php do_action( 'underscoresme_print_form' ); ?>
-				</div><!-- .wrap -->
-			</section><!-- #generator -->
+
+			<?php do_action( 'overscores_print_form' ); ?>
 
 			<section id="about">
 				<div class="wrap">
@@ -37,11 +32,11 @@ get_header(); ?>
 					</div><!-- #features -->
 				</div><!-- .wrap -->
 			</section><!-- #about -->
-			
+
 			<section id="contribute">
 				<div class="wrap">
 					<h1>Overscores is brought to you by these fine folks</h1>
-					<?php 
+					<?php
 					// <div id="github">
 					// 	<a href="https://github.com/automattic/_s" title="Go to the Underscores page on github to contribute to the project">Underscores on github</a>
 					// </div><!-- #github -->
