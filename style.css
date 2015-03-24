@@ -110,9 +110,17 @@ input[type="submit"]:focus {
 	font-size: 180px;
 }
 
-.site-header .site-title span.site-header-bubblewrap:after {
-	margin-top: -130px;
+.wf-active .site-header .site-title span.site-header-bubblewrap:before {
+	margin-top: 0;
+	text-indent: 0;
+	font-weight: bold;
+	font-size: 180px;
+}
+
+.wf-active .site-header .site-title span.site-header-bubblewrap:after {
+	margin-top: -125px;
 	font-size: 150px;
+	font-weight: bold;
 }
 
 .site-header .site-description {
