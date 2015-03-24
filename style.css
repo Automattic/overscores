@@ -134,12 +134,6 @@ input[type="submit"]:focus {
 #generator {
 	background: #3B5B73;
 	box-shadow: none;
-	padding: 0;
-}
-
-#generator .wrap {
-	padding-top: 30px;
-	padding-bottom: 30px;
 }
 
 #generator h1 {
@@ -159,8 +153,8 @@ input[type="submit"]:focus {
 	width: 500px;
 }
 
-.generator-form input[type="text"],
-.generator-form input[type="number"] {
+.generator-form-inputs input[type="text"],
+.generator-form-inputs input[type="number"] {
 	display: block;
 	clear: both;
 	margin-bottom: 7px;
@@ -173,8 +167,8 @@ input[type="submit"]:focus {
 	transition: all .3s ease-out;
 }
 
-.generator-form input[type="text"]:focus,
-.generator-form input[type="number"]:focus {
+.generator-form-inputs input[type="text"]:focus,
+.generator-form-inputs input[type="number"]:focus {
 	border: none;
 	background: #fff;
 	outline: none;
@@ -216,15 +210,6 @@ input[type="submit"]:focus {
 #generator-form a.generator-form-optionstoggle:hover {
 	text-decoration: none;
 	color: white;
-}
-
-.generator-form-secondary {
-	background-color: #53748C;
-	color: white;
-}
-
-.generator-form-secondary p {
-	padding-left: 335px;
 }
 
 /* About */

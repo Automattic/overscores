@@ -5,25 +5,16 @@
  */
 function overscores_print_form() {
 	?>
-	<form method="POST" action="/generator/" class="generator-form generator-form-skinny">
-		<section id="generator" role="main">
-			<div class="wrap">
-				<h1>Pick a topic</h1>
-				<div id="generator-form">
-					<section class="generator-form-inputs">
-						<section class="generator-form-primary">
-							<label for="underscoresme-name">Topic</label>
-							<input type="text" id="topic" name="from" placeholder="ex: nature, fashion" />
-						</section><!-- .generator-form-primary -->
-					</section><!-- .generator-form-inputs -->
+	<div id="generator-form" class="generator-form-skinny">
+		<form method="POST" action="/generator/">
 
-					<div class="generator-form-submit">
-						<input type="submit" name="underscoresme_generate_submit" value="Generate" />
-					</div><!-- .generator-form-submit -->
-				</div><!-- .generator-form -->
-			</div><!-- .wrap -->
-			<section class="generator-form-secondary">
-				<div class="wrap">
+			<section class="generator-form-inputs">
+				<section class="generator-form-primary">
+					<label for="underscoresme-name">Topic</label>
+					<input type="text" id="topic" name="from" placeholder="ex: nature, fashion" />
+				</section><!-- .generator-form-primary -->
+
+				<section class="generator-form-secondary">
 					<p>
 						<label for="number-posts">Number of Posts</label>
 						<input id="number-posts" type="number" name="post" min="5" max="50" step="5" value="10" />
@@ -40,10 +31,14 @@ function overscores_print_form() {
 						<label><input type="radio" name="with-images" value="few" /> Few posts</label><br />
 						<label><input type="radio" name="with-images" value="none" /> No posts</label><br />
 					</p>
-				</div><!-- .wrap -->
-			</section><!-- .generator-form-secondary -->
-		</section><!-- #generator -->
-	</form>
+				</section><!-- .generator-form-secondary -->
+			</section><!-- .generator-form-inputs -->
+
+			<div class="generator-form-submit">
+				<input type="submit" name="underscoresme_generate_submit" value="Generate" />
+			</div><!-- .generator-form-submit -->
+		</form>
+	</div><!-- .generator-form -->
 	<?php
 }
 add_action( 'overscores_print_form', 'overscores_print_form' );

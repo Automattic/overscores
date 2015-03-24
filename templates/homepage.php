@@ -10,7 +10,12 @@ get_header(); ?>
 
 		<div id="primary" class="site-content">
 
-			<?php do_action( 'overscores_print_form' ); ?>
+			<section id="generator" role="main">
+				<div class="wrap">
+					<h1>Pick a topic</h1>
+					<?php do_action( 'overscores_print_form' ); ?>
+				</div><!-- .wrap -->
+			</section><!-- #generator -->
 
 			<section id="about">
 				<div class="wrap">

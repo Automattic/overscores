@@ -3,7 +3,7 @@
  */
 jQuery( function( $ ) {
 	var advanced, simple,
-		form = $( document.forms[0] );
+		form = $('#generator-form');
 
 	advanced = $('<a href="#" class="generator-form-optionstoggle">Advanced Options</a>').appendTo('.generator-form-primary');
 
