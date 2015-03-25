@@ -198,6 +198,7 @@ input[type="radio"]:checked:before {
 #overscores-generator h1 {
 	margin: 0;
 	width: 319px;
+	vertical-align: middle;
 	font-size: 1.8em;
 	color: white;
 }
@@ -210,7 +211,7 @@ input[type="radio"]:checked:before {
 }
 
 #overscores-generator .form-primary {
-	padding-right: 185px;
+	padding-right: 157px;
 	margin-right: 20px;
 }
 
@@ -224,7 +225,7 @@ input[type="radio"]:checked:before {
 
 #overscores-generator .form-secondary .control {
 	margin-bottom: 20px;
-	max-width: 320px;
+	max-width: 347px;
 	padding-left: 320px;
 	text-align: right;
 }
@@ -243,7 +244,7 @@ input[type="radio"]:checked:before {
 }
 
 .generator-form input[type="text"] {
-	width: 320px;
+	width: 347px;
 	margin-right: 20px;
 }
 
@@ -307,6 +308,20 @@ input[type="radio"]:checked:before {
 	text-transform: uppercase;
 	text-decoration: none;
 	color: white;
+}
+
+.generator-form a.generator-form-optionstoggle:after {
+	content: '\2303';
+	display: inline-block;
+	margin-left: 5px;
+	font-family: Arial;
+	transform: translateY( 3px );
+	transform-origin: 50% 50%;
+}
+
+.generator-form-collapsed a.generator-form-optionstoggle:after {
+	transform: translateY( -5px ) rotateX( 180deg );
+	transform-origin: 50% 50%;
 }
 
 .generator-form a.generator-form-optionstoggle:hover {

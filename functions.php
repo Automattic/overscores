@@ -10,6 +10,7 @@
  */
 function overscores_style() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'genericons', 'http://genericons.com/wp-content/themes/a8c/genericons/genericons/genericons.css' );
 }
 add_action( 'wp_enqueue_scripts', 'overscores_style' );
 
