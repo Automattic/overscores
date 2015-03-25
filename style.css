@@ -357,6 +357,28 @@ input[type="radio"]:checked:before {
 	margin-bottom: 40px;
 }
 
+/* Github Link */
+
+#github-link {
+	padding: 30px 0;
+	background-color: #F3F5F6;
+	text-align: center;
+}
+
+#github-link a {
+	display: inline-block;
+	padding: 15px 30px;
+	background-color: #01BEA0;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#github-link a:hover,
+#github-link a:focus {
+	background-color: #01a289;
+}
+
 /* Contribute */
 
 #contribute {

@@ -33,14 +33,13 @@ get_header(); ?>
 				</div><!-- .wrap -->
 			</section><!-- #about -->
 
+			<section id="github-link">
+				<a href="https://github.com/ryelle/Content-Generator/tree/generator-ui">View Overscores on Github</a>
+			</section><!-- /.github -->
+
 			<section id="contribute">
 				<div class="wrap">
 					<h1>Overscores is brought to you by these fine folks</h1>
-					<?php
-					// <div id="github">
-					// 	<a href="https://github.com/automattic/_s" title="Go to the Underscores page on github to contribute to the project">Underscores on github</a>
-					// </div><!-- #github -->
-					?>
 					<ul id="team">
 						<li><a title="Kelly Dwan" href="https://github.com/ryelle/"><img class="avatar" src="https://avatars3.githubusercontent.com/u/541093?v=3&amp;s=460" /></a></li>
 						<li><a title="Mel Choyce" href="https://github.com/melchoyce/"><img class="avatar" src="https://avatars1.githubusercontent.com/u/2846578?v=3&amp;s=460" /></a></li>
