@@ -73,8 +73,55 @@ input[type="submit"]:focus {
 	box-shadow: inset 0 15px 17px rgba(255,255,255,0.1);
 }
 
+input[type="radio"] {
+	border: 1px solid #bbb;
+	background: #fff;
+	color: #555;
+	clear: none;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 10px;
+	height: 16px;
+	margin: -4px 4px 0 0;
+	outline: 0;
+	padding: 0 !important;
+	text-align: center;
+	vertical-align: middle;
+	width: 16px;
+	min-width: 16px;
+	-webkit-appearance: none;
+	box-shadow: inset 0 1px 2px rgba( 0, 0, 0, 0.1 );
+	transition: .05s border-color ease-in-out;
+	border-radius: 50%;
+}
+
+input[type="radio"]:checked:before {
+	float: left;
+	display: inline-block;
+	vertical-align: middle;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: '';
+	border-radius: 50px;
+	width: 10px;
+	height: 10px;
+	margin: 3px;
+	line-height: 16px;
+	background-color: #01BEA0;
+}
+
 .wrap {
 	max-width: 980px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
 }
 
 /* =Header
@@ -144,28 +191,66 @@ input[type="submit"]:focus {
 	box-shadow: none;
 }
 
+#overscores-generator .wrap {
+	padding: 30px 0;
+}
+
 #overscores-generator h1 {
 	margin: 0;
+	width: 319px;
 	font-size: 1.8em;
 	color: white;
 }
 
-#overscores-generator-form {
-	color: white;
+#overscores-generator h1,
+#overscores-generator .form-primary,
+#overscores-generator .form-submit {
+	position: relative;
+	display: inline-block;
+}
+
+#overscores-generator .form-primary {
+	padding-right: 185px;
+	margin-right: 20px;
+}
+
+#overscores-generator .form-secondary {
+	background-color: #53748C;
+}
+
+.generator-form-collapsed .form-secondary {
+	display: none;
+}
+
+#overscores-generator .form-secondary .control {
+	margin-bottom: 20px;
+	max-width: 320px;
+	padding-left: 320px;
+	text-align: right;
 }
 
 .generator-form input[type="text"],
 .generator-form input[type="number"] {
 	display: block;
 	clear: both;
-	margin-bottom: 7px;
 	padding: 13px 10px 14px;
-	width: 275px;
 	font-size: 16px;
 	border: none;
 	background: rgba(255,255,255,.9);
 	border-radius: 0;
 	transition: all .3s ease-out;
+	box-sizing: border-box;
+}
+
+.generator-form input[type="text"] {
+	width: 320px;
+	margin-right: 20px;
+}
+
+.generator-form input[type="number"],
+.generator-form .featured-img-choices {
+	display: inline-block;
+	width: 130px;
 }
 
 .generator-form input[type="text"]:focus,
@@ -174,6 +259,27 @@ input[type="submit"]:focus {
 	background: #fff;
 	outline: none;
 	box-shadow: 0 0 0 2px rgba(59,91,115,0.5);
+}
+
+.generator-form label[for] {
+	color: white;
+	margin-right: 20px;
+}
+
+.generator-form .featured-img-label {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 20px;
+	color: white;
+}
+
+.generator-form .featured-img-choices {
+	text-align: left;
+	color: white;
+}
+
+.generator-form .featured-img-choices input {
+	border: none;
 }
 
 .generator-form input[type="submit"] {
@@ -199,16 +305,13 @@ input[type="submit"]:focus {
 	line-height: 1;
 	background-color: #53748C;
 	text-transform: uppercase;
+	text-decoration: none;
 	color: white;
 }
 
 .generator-form a.generator-form-optionstoggle:hover {
 	text-decoration: none;
 	color: white;
-}
-
-#overscores-generator .form-secondary {
-	background-color: #53748C;
 }
 
 /* About */
