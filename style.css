@@ -199,7 +199,7 @@ input[type="radio"]:checked:before {
 	margin: 0;
 	width: 319px;
 	vertical-align: middle;
-	font-size: 1.8em;
+	font-size: 32px;
 	color: white;
 }
 
@@ -389,9 +389,10 @@ input[type="radio"]:checked:before {
 }
 
 #contribute h1 {
+	margin: 30px 0 0;
 	width: 300px;
 	font-size: 1.2em;
-	margin: 3.2em 0 0;
+	line-height: 1.4;
 }
 
 #team {
