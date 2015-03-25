@@ -1,13 +1,21 @@
-<div id="generator-form" class="generator-form-skinny">
-	<form method="POST" action="/generator/">
 
-		<section class="generator-form-inputs">
-			<section class="generator-form-primary">
+<section id="overscores-generator" role="main">
+	<form method="POST" action="/generator/" id="overscores-form" class="generator-form collapsed">
+		<div class="wrap">
+			<h1>Pick a topic</h1>
+
+			<section class="form-primary">
 				<label for="underscoresme-name">Topic</label>
 				<input type="text" id="topic" name="from" placeholder="ex: nature, fashion" />
-			</section><!-- .generator-form-primary -->
+			</section><!-- .form-primary -->
 
-			<section class="generator-form-secondary">
+			<div class="form-submit">
+				<input type="submit" name="underscoresme_generate_submit" value="Generate" />
+			</div><!-- .form-submit -->
+		</div><!-- .wrap -->
+
+		<section class="form-secondary">
+			<div class="wrap">
 				<p>
 					<label for="number-posts">Number of Posts</label>
 					<input id="number-posts" type="number" name="post" min="5" max="50" step="5" value="10" />
@@ -24,11 +32,7 @@
 					<label><input type="radio" name="with-images" value="few" /> Few posts</label><br />
 					<label><input type="radio" name="with-images" value="none" /> No posts</label><br />
 				</p>
-			</section><!-- .generator-form-secondary -->
-		</section><!-- .generator-form-inputs -->
-
-		<div class="generator-form-submit">
-			<input type="submit" name="underscoresme_generate_submit" value="Generate" />
-		</div><!-- .generator-form-submit -->
+			</div><!-- .wrap -->
+		</section><!-- .form-secondary -->
 	</form>
-</div><!-- .generator-form -->
+</section><!-- #overscores-generator -->

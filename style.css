@@ -139,30 +139,23 @@ input[type="submit"]:focus {
 
 /* Generator */
 
-#generator {
+#overscores-generator {
 	background: #3B5B73;
 	box-shadow: none;
 }
 
-#generator h1 {
+#overscores-generator h1 {
 	margin: 0;
-	width: 300px;
 	font-size: 1.8em;
 	color: white;
 }
 
-#generator-form {
-	width: 645px;
+#overscores-generator-form {
 	color: white;
 }
 
-.generator-form-inputs {
-	position: relative;
-	width: 500px;
-}
-
-.generator-form-inputs input[type="text"],
-.generator-form-inputs input[type="number"] {
+.generator-form input[type="text"],
+.generator-form input[type="number"] {
 	display: block;
 	clear: both;
 	margin-bottom: 7px;
@@ -175,15 +168,15 @@ input[type="submit"]:focus {
 	transition: all .3s ease-out;
 }
 
-.generator-form-inputs input[type="text"]:focus,
-.generator-form-inputs input[type="number"]:focus {
+.generator-form input[type="text"]:focus,
+.generator-form input[type="number"]:focus {
 	border: none;
 	background: #fff;
 	outline: none;
 	box-shadow: 0 0 0 2px rgba(59,91,115,0.5);
 }
 
-.generator-form-submit input[type="submit"] {
+.generator-form input[type="submit"] {
 	margin-top: 0;
 	padding: 15px 20px;
 	width: auto;
@@ -196,13 +189,7 @@ input[type="submit"]:focus {
 	color: white;
 }
 
-#generator-form a.generator-form-optionstoggle,
-.generator-form-version {
-	color: rgb(59,91,115);
-	color: rgba(59,91,115,0.5);
-}
-
-#generator-form a.generator-form-optionstoggle {
+.generator-form a.generator-form-optionstoggle {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -215,9 +202,13 @@ input[type="submit"]:focus {
 	color: white;
 }
 
-#generator-form a.generator-form-optionstoggle:hover {
+.generator-form a.generator-form-optionstoggle:hover {
 	text-decoration: none;
 	color: white;
+}
+
+#overscores-generator .form-secondary {
+	background-color: #53748C;
 }
 
 /* About */
